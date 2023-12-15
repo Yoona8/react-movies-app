@@ -1,0 +1,14 @@
+.user {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.user__info {
+  font-size: 20px;
+}
+
+.user__avatar {
+  display: block;
+  margin-left: 15px;
+}
