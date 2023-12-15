@@ -9,8 +9,13 @@ import userProfileImage from '../../assets/images/bitmap@2x.png';
 
 // todo: if user is not logged-in or has no custom image, show placeholder
 
+const Modal = {
+  LOGIN: 'login',
+  REGISTER: 'register',
+};
+
 export function User() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [openModal, setOpenModal] = useState<string>();
 
   return (
     <>
@@ -18,9 +23,16 @@ export function User() {
         <p className="user__info">
           <button
             className="link user__auth"
-            onClick={() => setIsOpen(true)}
+            onClick={() => setOpenModal(Modal.LOGIN)}
           >
-            Login / Register
+            Login
+          </button>
+          &nbsp;/&nbsp;
+          <button
+            className="link user__auth"
+            onClick={() => setOpenModal(Modal.REGISTER)}
+          >
+            Register
           </button>
           {/*Movie Buff*/}
         </p>
@@ -34,10 +46,17 @@ export function User() {
       </section>
       <Dialog
         title="Login"
-        isOpen={isOpen}
-        onClose={() => setIsOpen(!isOpen)}
+        isOpen={openModal === Modal.LOGIN}
+        onClose={() => setOpenModal('')}
       >
-        <Login />
+        <Login onFormSubmit={() => console.log('on login submit')} buttonLabel="Login" />
+      </Dialog>
+      <Dialog
+        title="Register"
+        isOpen={openModal === Modal.REGISTER}
+        onClose={() => setOpenModal('')}
+      >
+        <Login onFormSubmit={() => console.log('on register submit')} buttonLabel="Register" />
       </Dialog>
     </>
   );

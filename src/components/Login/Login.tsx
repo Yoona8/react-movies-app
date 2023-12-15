@@ -4,9 +4,15 @@ import '../../css/form.css';
 import '../../css/button.css';
 import './Login.css';
 
-export function Login() {
+interface ILoginProps {
+  onFormSubmit: () => void;
+  buttonLabel: string;
+}
+
+export function Login({ onFormSubmit, buttonLabel }: ILoginProps) {
   const onSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
+    onFormSubmit();
     console.log(evt.currentTarget.elements);
   };
 
@@ -35,7 +41,7 @@ export function Login() {
         </li>
       </ul>
       <p className="login__submit">
-        <button className="button" type="submit">Login</button>
+        <button className="button" type="submit">{buttonLabel}</button>
       </p>
     </form>
   );
