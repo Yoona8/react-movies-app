@@ -1,11 +1,11 @@
 import { useState } from 'react';
+import styled from '@emotion/styled';
 
-import { Dialog } from '../Dialog/Dialog';
-import { Login } from '../Login/Login';
+import { Dialog } from './Dialog';
+import { Login } from './Login';
 
-import './user.css';
 // @ts-ignore
-import userProfileImage from '../../assets/images/bitmap@2x.png';
+import userProfileImage from '../assets/images/bitmap@2x.png';
 
 // todo: if user is not logged-in or has no custom image, show placeholder
 
@@ -14,36 +14,50 @@ const Modal = {
   REGISTER: 'register',
 };
 
+const Section = styled.section`
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+`;
+
+const Info = styled.p`
+  font-size: 20px;
+`;
+
+const Avatar = styled.img`
+  display: block;
+  margin-left: 15px;
+`;
+
 export function User() {
   const [openModal, setOpenModal] = useState<string>();
 
   return (
     <>
-      <section className="user">
-        <p className="user__info">
+      <Section>
+        <Info>
           <button
-            className="link user__auth"
+            className="link"
             onClick={() => setOpenModal(Modal.LOGIN)}
           >
             Login
           </button>
           &nbsp;/&nbsp;
           <button
-            className="link user__auth"
+            className="link"
             onClick={() => setOpenModal(Modal.REGISTER)}
           >
             Register
           </button>
           {/*Movie Buff*/}
-        </p>
-        <img
-          className="user__avatar"
+        </Info>
+        <Avatar
           src={userProfileImage}
           alt="Avatar"
           width="35"
           height="35"
         />
-      </section>
+      </Section>
       <Dialog
         title="Login"
         isOpen={openModal === Modal.LOGIN}

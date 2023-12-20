@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
 
-import { Header } from './components/Header/Header';
+import { Header } from './components/Header';
 
 import './css/settings.css';
 

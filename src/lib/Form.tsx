@@ -1,15 +1,23 @@
-.form__field {
+import styled from '@emotion/styled';
+
+const Fields = styled.ul`
+  margin: 0;
+  padding: 0;
+  list-style: none;
+`;
+
+const Field = styled.li`
   margin-bottom: 20px;
   font-size: 20px;
   font-weight: 600;
-}
+`;
 
-.form__label {
+const Label = styled.label`
   display: block;
   margin-bottom: 5px;
-}
+`;
 
-.form__input {
+const Input = styled.input`
   box-sizing: border-box;
   width: 100%;
   padding: 15px;
@@ -22,4 +30,6 @@
   border-radius: 5px;
   outline: none;
   resize: none;
-}
+`;
+
+export { Fields, Field, Label, Input };
