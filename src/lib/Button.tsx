@@ -1,4 +1,6 @@
-.button {
+import styled from '@emotion/styled';
+
+const Button = styled.button`
   box-sizing: border-box;
   display: block;
   min-width: 100px;
@@ -13,8 +15,10 @@
   border-radius: 5px;
   opacity: 1;
   transition: opacity 0.1s ease-in;
-}
 
-.button:hover {
-  opacity: 0.7;
-}
+  &:hover {
+    opacity: 0.7;
+  }
+`;
+
+export { Button };
